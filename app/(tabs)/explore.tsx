@@ -8,7 +8,7 @@ const windowHeight = Dimensions.get('window').height;
 export default function TabTwoScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <WebView style={styles.webview} source={{ uri: 'https://naver.com' }} />
+      <WebView style={styles.webview} source={{ uri: 'https://swimie.life' }} />
     </SafeAreaView>
   );
 }
