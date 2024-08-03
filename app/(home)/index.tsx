@@ -1,11 +1,10 @@
-import React from 'react';
 import { SafeAreaView, StyleSheet, Dimensions } from 'react-native';
 import WebView from 'react-native-webview';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default function TabTwoScreen() {
+export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <WebView style={styles.webview} source={{ uri: 'https://swimie.life' }} />
