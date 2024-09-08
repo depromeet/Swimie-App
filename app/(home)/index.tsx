@@ -8,7 +8,6 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <WebView
         style={styles.webview}
-        contentInsetAdjustmentBehavior="never"
         source={{ uri: 'https://swimie.life' }}
         userAgent={customUserAgent}
         originWhitelist={['*']}
