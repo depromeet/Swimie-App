@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet, Platform, StatusBar } from 'react-native';
 import WebView from 'react-native-webview';
 
 export default function HomeScreen() {
@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffffff',
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
   },
   webview: {
     flex: 1,
