@@ -14,6 +14,7 @@ export default function HomeScreen() {
         scrollEnabled
         allowsInlineMediaPlayback
         mediaCapturePermissionGrantType="grantIfSameHostElsePrompt"
+        allowsBackForwardNavigationGestures
       />
     </SafeAreaView>
   );
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffffff',
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   webview: {
     flex: 1,
