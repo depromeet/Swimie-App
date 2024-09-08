@@ -7,15 +7,12 @@ const windowHeight = Dimensions.get('window').height;
 
 export default function HomeScreen() {
   return (
-    <>
-      <StatusBar style="dark" backgroundColor="#ffffff" />
-      <SafeAreaView style={styles.container}>
-        <WebView
-          style={styles.webview}
-          source={{ uri: 'https://swimie.life' }}
-        />
-      </SafeAreaView>
-    </>
+    <SafeAreaView style={styles.container}>
+      <WebView
+        style={styles.webview}
+        source={{ uri: 'https://swimie.life' }}
+      />
+    </SafeAreaView>
   );
 }
 

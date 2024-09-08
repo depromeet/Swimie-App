@@ -2,11 +2,11 @@
   "expo": {
     "name": "swimie",
     "slug": "swimie",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "swimie",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "light",
     "backgroundColor": "#ffffff",
     "splash": {
       "image": "./assets/images/splash.png",
