@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Dimensions } from 'react-native';
+import { SafeAreaView, StyleSheet, Dimensions, Platform, StatusBar } from 'react-native';
 import WebView from 'react-native-webview';
 
 const windowWidth = Dimensions.get('window').width;
@@ -22,6 +21,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#ffffff',
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
   },
   webview: {
     flex: 1,
