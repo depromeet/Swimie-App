@@ -14,7 +14,7 @@ export default function HomeScreen() {
         scrollEnabled
         allowsInlineMediaPlayback
         mediaCapturePermissionGrantType="grantIfSameHostElsePrompt"
-        allowsBackForwardNavigationGestures
+        // allowsBackForwardNavigationGestures
       />
     </SafeAreaView>
   );
