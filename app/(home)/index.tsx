@@ -7,8 +7,8 @@ const windowHeight = Dimensions.get('window').height;
 
 export default function HomeScreen() {
   const customUserAgent = Platform.OS === 'android'
-  ? 'Chrome/18.0.1025.133 Mobile Safari/535.19'
-  : 'AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75';
+  ? 'Mozilla/5.0 (Linux; Android 15) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.6613.127 Mobile Safari/537.36'
+  : 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1';
   return (
     <>
       <StatusBar style="dark" backgroundColor="#ffffff" />
