@@ -2,19 +2,22 @@
   "expo": {
     "name": "swimie",
     "slug": "swimie",
-    "version": "1.0.1",
+    "version": "1.0.5",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "swimie",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "light",
     "backgroundColor": "#ffffff",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#3B87F4"
     },
+    "locales": {
+      "ko": "./locales/ko.json"
+    },
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "jiyoung0106.depromeet",
       "infoPlist": {
         "UIViewControllerBasedStatusBarAppearance": false
@@ -37,7 +40,15 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "프로필 사진, 수영 인증 사진 설정 및 변경을 위해 카메라 권한을 허락해 주세요",
+          "microphonePermission": "프로필 사진, 수영 인증 사진 설정 및 변경을 위해 마이크 권한을 허락해 주세요",
+          "recordAudioAndroid": true
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
