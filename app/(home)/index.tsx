@@ -8,9 +8,9 @@ export default function HomeScreen() {
   : 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1';
 
   const webview = useRef<WebView>(null);
-
+  const [isCanGoBack, setIsCanGoBack] = useState(false);
   const onPressHardwareBackButton = () => {
-    if (webview.current) {
+    if (webview.current && isCanGoBack) {
       webview.current.goBack();
       return true;
     } else {
@@ -23,7 +23,7 @@ export default function HomeScreen() {
     return () => {
       BackHandler.removeEventListener('hardwareBackPress', onPressHardwareBackButton);
     }
-  }, []);
+  }, [isCanGoBack]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -37,6 +37,35 @@ export default function HomeScreen() {
         mediaCapturePermissionGrantType="grantIfSameHostElsePrompt"
         allowsBackForwardNavigationGestures
         ref={webview}
+        injectedJavaScript={`
+          (function() {
+            function wrap(fn) {
+              return function wrapper() {
+                const res = fn.apply(this, arguments);
+                window.ReactNativeWebView.postMessage('navigationStateChange');
+                return res;
+              }
+            }
+      
+            history.pushState = wrap(history.pushState);
+            history.replaceState = wrap(history.replaceState);
+            window.addEventListener('popstate', function() {
+              window.ReactNativeWebView.postMessage('navigationStateChange');
+            });
+          })();
+      
+          true;
+        `}
+        onMessage={({ nativeEvent: state }) => {
+          if (state.data === 'navigationStateChange') {
+            // Navigation state updated, can check state.canGoBack, etc.
+            if(state.url.endsWith('/login') || state.url.endsWith('swimie.life/')) {
+              setIsCanGoBack(false);
+            } else {
+              setIsCanGoBack(state.canGoBack);
+            }
+          }
+        }}
       />
     </SafeAreaView>
   );
