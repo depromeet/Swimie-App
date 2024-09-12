@@ -7,6 +7,24 @@ export default function HomeScreen() {
   ? 'Mozilla/5.0 (Linux; Android 15) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.6613.127 Mobile Safari/537.36'
   : 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1';
 
+  const webview = useRef<WebView>(null);
+
+  const onPressHardwareBackButton = () => {
+    if (webview.current) {
+      webview.current.goBack();
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', onPressHardwareBackButton);
+    return () => {
+      BackHandler.removeEventListener('hardwareBackPress', onPressHardwareBackButton);
+    }
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <WebView
@@ -18,6 +36,7 @@ export default function HomeScreen() {
         allowsInlineMediaPlayback
         mediaCapturePermissionGrantType="grantIfSameHostElsePrompt"
         allowsBackForwardNavigationGestures
+        ref={webview}
       />
     </SafeAreaView>
   );
