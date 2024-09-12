@@ -13,6 +13,9 @@
       "resizeMode": "cover",
       "backgroundColor": "#3B87F4"
     },
+    "locales": {
+      "ko": "./locales/ko.json"
+    },
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "jiyoung0106.depromeet",
