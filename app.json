@@ -2,7 +2,7 @@
   "expo": {
     "name": "swimie",
     "slug": "swimie",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "swimie",
@@ -24,6 +24,7 @@
       }
     },
     "android": {
+      "versionCode": 3,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#3B87F4"

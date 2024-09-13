@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { SafeAreaView, StyleSheet, Platform, StatusBar, BackHandler } from 'react-native';
+import { SafeAreaView, StyleSheet, Platform, StatusBar, BackHandler, Linking } from 'react-native';
 import WebView from 'react-native-webview';
 
 export default function HomeScreen() {
@@ -65,6 +65,13 @@ export default function HomeScreen() {
               setIsCanGoBack(state.canGoBack);
             }
           }
+        }}
+        onShouldStartLoadWithRequest={(event) => {
+          if(event.url.startsWith('kakaotalk')) {
+            Linking.openURL(event.url);
+            return false;
+          }
+          return true;
         }}
       />
     </SafeAreaView>
